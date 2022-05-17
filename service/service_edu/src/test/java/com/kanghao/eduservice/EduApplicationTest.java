@@ -27,15 +27,18 @@ public class EduApplicationTest {
     @Test
     public  void testOracleConnect(){
         User user = new User();
-        user.setTestId("1111");
-        user.setPriceempty(true);
-        user.setTestPrice(new BigDecimal(12.123));
-        user.setTestFood("菠萝");
-        user.setGmtCreate(LocalDateTime.now());
-        user.setGmtModified(LocalDateTime.now());
+
         int insert = userMapper.insert(user);
 
     }
+     /*
+     LocalDateTime练习
+      */
+      @Test
+    public void testLocalDateTime(){
+          //获取当前时间
+          System.out.println();
 
+     }
 
 }

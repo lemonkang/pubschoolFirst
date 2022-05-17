@@ -14,6 +14,12 @@
         <module>service_edu</module>
     </modules>
     <dependencies>
+<!--        引入serverceBase模块-->
+        <dependency>
+            <groupId>com.kanghao</groupId>
+            <artifactId>service_base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
 
 
@@ -76,8 +82,9 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
         </dependency>
-
         <!--xls-->
         <dependency>
             <groupId>org.apache.poi</groupId>
