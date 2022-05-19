@@ -29,8 +29,8 @@ public class SwaggerConfig {
     private ApiInfo webApiInfo() {
 
         return new ApiInfoBuilder()
-                .title("网站-课程中心API文档")
-                .description("本文档描述了课程中心微服务接口定义")
+                .title("公立校测试单元")
+                .description("本文档是公立校各个测试单元")
                 .version("1.0")
                 .contact(new Contact("java", "http://atguigu.com", "1123@qq.com"))
                 .build();

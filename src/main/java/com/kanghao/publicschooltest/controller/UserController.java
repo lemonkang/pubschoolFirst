@@ -17,12 +17,11 @@ public class UserController {
     @ApiOperation("测试全局异常拦截器")
     @GetMapping("/globalExceptionInterceptor")
     public CommonResult globalExceptionInterceptor(String str)  {
-        try {
-            Integer num=10/0;
-        }catch (Exception e){
-
+     try {
+         Integer num=10/0;
+     }catch (Exception e){
          throw e;
-        }
+     }
 
 
         return CommonResult.sucess();
