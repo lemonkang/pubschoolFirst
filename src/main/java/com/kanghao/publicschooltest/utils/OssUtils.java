@@ -4,15 +4,12 @@ import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.PutObjectResult;
-import com.kanghao.publicschooltest.constant.Oss;
+import com.kanghao.publicschooltest.constant.OssConstant;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
 
 public class OssUtils {
     // OSSClient实例
@@ -23,10 +20,10 @@ public class OssUtils {
      */
     static {
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
-        String endpoint = Oss.ENDPOINT;
+        String endpoint = OssConstant.ENDPOINT;
         // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = Oss.ACCESS_KEY_ID;
-        String accessKeySecret = Oss.ACCESS_KEY_SECRET;
+        String accessKeyId = OssConstant.ACCESS_KEY_ID;
+        String accessKeySecret = OssConstant.ACCESS_KEY_SECRET;
         // 创建OSSClient实例。
         ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
     }
@@ -37,7 +34,7 @@ public class OssUtils {
     public static String uploadImage(MultipartFile file) {
 
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = Oss.BUCKET_NAME;
+        String bucketName = OssConstant.BUCKET_NAME;
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
         String UUID = java.util.UUID.randomUUID().toString().replace("-", "");
         String objectName = file.getOriginalFilename();
@@ -89,7 +86,7 @@ public class OssUtils {
 
 
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = Oss.BUCKET_NAME;
+        String bucketName = OssConstant.BUCKET_NAME;
         // 填写文件完整路径。文件完整路径中不能包含Bucket名称。
         String replacepath = "https://" + bucketName + ".oss-cn-shanghai.aliyuncs.com/";
 

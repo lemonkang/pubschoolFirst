@@ -4,19 +4,19 @@ import com.aliyun.oss.ClientException;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.OSSException;
-import com.aliyun.oss.model.PutObjectRequest;
-import com.kanghao.publicschooltest.constant.Oss;
+import com.kanghao.publicschooltest.constant.OssConstant;
 import com.kanghao.publicschooltest.utils.OssUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.UUID;
+import java.util.stream.Stream;
+
 @SpringBootTest
 class PublicschooltestApplicationTests {
 /*
@@ -25,12 +25,12 @@ class PublicschooltestApplicationTests {
     @Test
     void uploadOss() {
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
-        String endpoint =Oss.ENDPOINT;
+        String endpoint = OssConstant.ENDPOINT;
         // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = Oss.ACCESS_KEY_ID;
-        String accessKeySecret =Oss.ACCESS_KEY_SECRET;
+        String accessKeyId = OssConstant.ACCESS_KEY_ID;
+        String accessKeySecret = OssConstant.ACCESS_KEY_SECRET;
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = Oss.BUCKET_NAME;
+        String bucketName = OssConstant.BUCKET_NAME;
         // 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
         String objectName = "imagepa.png";
 
@@ -97,12 +97,12 @@ class PublicschooltestApplicationTests {
     @Test
     public void deletesinglepicture(){
         // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。
-        String endpoint =Oss.ENDPOINT;
+        String endpoint = OssConstant.ENDPOINT;
         // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
-        String accessKeyId = Oss.ACCESS_KEY_ID;
-        String accessKeySecret =Oss.ACCESS_KEY_SECRET;
+        String accessKeyId = OssConstant.ACCESS_KEY_ID;
+        String accessKeySecret = OssConstant.ACCESS_KEY_SECRET;
         // 填写Bucket名称，例如examplebucket。
-        String bucketName = Oss.BUCKET_NAME;
+        String bucketName = OssConstant.BUCKET_NAME;
         // 填写文件完整路径。文件完整路径中不能包含Bucket名称。
         String objectName = "test.txt";
         // 创建OSSClient实例。
@@ -163,4 +163,12 @@ class PublicschooltestApplicationTests {
         Boolean aBoolean = OssUtils.deleteImage("https://publicschoolfirst.oss-cn-shanghai.aliyuncs.com/pa.png");
         System.out.println(aBoolean);
     }
+    /**
+     * 本地文件上传
+     */
+    @Test
+    public void localUpload(){
+
+    }
+
 }

@@ -15,7 +15,9 @@ public class GlobalExceptionInterceptor {
 
     @ExceptionHandler(Exception.class)
     public CommonResult ExceptionHandler(HttpServletRequest request, Exception e){
+        String message = e.getMessage();
+        e.printStackTrace();
         //打印日志  打印异常  返回结果
-        return CommonResult.fail();
+        return CommonResult.fail().message(message);
     }
 }

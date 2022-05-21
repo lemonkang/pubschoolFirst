@@ -21,13 +21,13 @@ public class OssController {
     @ApiOperation("阿里云的单张图片上传")
     @PostMapping("/uploadImage")
     public CommonResult uploadImage(@RequestBody(required = true)  MultipartFile uploadfile){
+        System.out.println(uploadfile);
         String originalFilename = uploadfile.getOriginalFilename();
 
         if (uploadfile==null){
             return CommonResult.fail().message("file不能为空");
         }
         String fileurl = ossService.uploadImage(uploadfile);
-
         return CommonResult.sucess().data("url",fileurl);
     }
     @ApiOperation("阿里云的多张图片上传")
